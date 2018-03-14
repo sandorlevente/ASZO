@@ -1,0 +1,10 @@
+set logscale y
+set title "Residuals"
+set ylabel 'Residual'
+set xlabel 'Iteration'
+plot "< cat log.rhoCentralFoam | grep 'Solving for Ux' | cut -d' ' -f9 | tr -d ','" title 'Uax' with lines,\
+"< cat log.rhoCentralFoam | grep 'Solving for Uy' | cut -d' ' -f9 | tr -d ','" title 'Uay' with lines,\
+"< cat log.rhoCentralFoam | grep 'Solving for k' | cut -d' ' -f9 | tr -d ','" title 'ka' with lines, \
+"< cat log.rhoCentralFoam | grep 'Solving for epsilon' | cut -d' ' -f9 | tr -d ','" title 'epsilona' with lines,
+pause 2
+reread
